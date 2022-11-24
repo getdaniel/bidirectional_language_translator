@@ -1,4 +1,4 @@
-# Simple-Language-Translator :flutter:
+# Simple-Language-Translator :house:
 Simple Language Translator Mobile Application with Flutter
 
 ## Usage :computer:
@@ -8,5 +8,5 @@ Simple Language Translator Mobile Application with Flutter
 ### Step 2: <br>
 `Start to code.` <br>
 
-## Authors :jenkins:
+## Authors :black_nib:
 * **DANIEL GETANEH** <[ShagizMan](https://www.github.com/ShagizMan)>
