@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.geez_amharic">
    <application
-        android:label="geez_amharic"
+        android:label="ግዕዝ-አማርኛ"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
