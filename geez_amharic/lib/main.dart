@@ -52,11 +52,25 @@ class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
   static const List<Widget> _widgetOptions = <Widget>[
-    Text("Home", style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text("Google's Translation",
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
-    Text("Learn About Translation",
-        style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+    TextField(
+      obscureText: false,
+      maxLines: 15,
+      decoration: InputDecoration(
+        // labelText: "Ge'ez",
+        border: OutlineInputBorder(),
+        hintText: "Enter Ge'ez word(s) or sentence(s) for translation...",
+      ),
+    ),
+    SizedBox(
+      child: Center(
+        child: Text("Google's Translation", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+      ),
+    ),
+    SizedBox(
+      child: Center(
+        child: Text("Learn About Translation", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
+      ),
+    )
   ];
 
   void _onItemTapped(int index) {
@@ -79,10 +93,17 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
+        child: Column(
+          children: [
+            Center(
+              // Center is a layout widget. It takes a single child and positions it
+              // in the middle of the parent.
+              child: _widgetOptions.elementAt(_selectedIndex),
+            ),
+          ],
+        ),
       ),
       drawer: Drawer(
         child: ListView(
@@ -97,7 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 backgroundColor: Colors.brown,
                 child: Text(
                   "ግዕዝ-አማርኛ",
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 14),
                 ),
               ),
             ),
@@ -150,6 +171,7 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: _selectedIndex,
         iconSize: 35,
         onTap: _onItemTapped,
+        backgroundColor: Colors.grey,
       ),
     );
   }
