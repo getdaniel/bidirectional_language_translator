@@ -12,8 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Language Translation',
       theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
+          primarySwatch: Colors.teal,
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          hoverColor: Colors.transparent),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Simple Language Translator'),
     );
@@ -32,47 +34,23 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _widgetOptions = <Widget>[
-    Padding(
-      padding: EdgeInsets.all(5.0),
-      child: TextField(
-        obscureText: false,
-        maxLines: 15,
-        decoration: InputDecoration(
-          // labelText: "Ge'ez",
-          border: OutlineInputBorder(),
-          hintText: "Enter Ge'ez word(s) or sentence(s) for translation...",
-        ),
-      ),
-    ),
-    Padding(
-      padding: EdgeInsets.all(5.0),
-      child: Center(
-        child: Text("Learn About Ge'ez", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
-      ),
-    )
+  final pages = [
+    const Home(),
+    const Learn(),
   ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(15.0),
-        child: Column(
-          children: [
-            _widgetOptions.elementAt(_selectedIndex),
-          ],
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
+      body: pages[_selectedIndex],
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
@@ -117,25 +95,116 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Home",
-            backgroundColor: Colors.teal,
+      bottomNavigationBar: buildMyNavBar(context),
+    );
+  }
+
+  Container buildMyNavBar(BuildContext context) {
+    return Container(
+      height: 60,
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColor,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(15),
+          topRight: Radius.circular(15),
+        ),
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        children: [
+          InkWell(
+            onTap: () {
+              setState(() {
+                _selectedIndex = 0;
+              });
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                if (_selectedIndex == 0)
+                  const Icon(Icons.home_filled)
+                else
+                  const Icon(Icons.home_outlined),
+                const Text(
+                  "Home",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            backgroundColor: Colors.teal,
-            label: "Learn Ge'ez",
+          InkWell(
+            onTap: () {
+              setState(() {
+                _selectedIndex = 1;
+              });
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                if (_selectedIndex == 1)
+                  const Icon(Icons.school_rounded)
+                else
+                  const Icon(Icons.school_outlined),
+                const Text(
+                  "Know Ge'ez",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
         ],
-        type: BottomNavigationBarType.fixed,
-        currentIndex: _selectedIndex,
-        iconSize: 35,
-        onTap: _onItemTapped,
-        backgroundColor: Colors.grey,
       ),
+    );
+  }
+}
+
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: const Center(
+        child: TextField(
+          obscureText: false,
+          maxLines: 10,
+          decoration: InputDecoration(
+            // labelText: "Ge'ez",
+            suffixIcon: Icon(
+              Icons.copy,
+              color: Colors.blue,
+            ),
+            border: OutlineInputBorder(),
+            hintText: "Enter Ge'ez word(s) or sentence(s) for translation...",
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Learn extends StatelessWidget {
+  const Learn({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: const Center(
+          child: Text(
+        "What is Ge'ez Language?\n"
+        "Ge'ez is an ancient Ethiopian Semitic language.The language originates from what is now northern Ethiopia and Eritrea.",
+        style: TextStyle(
+          fontSize: 15,
+        ),
+      )),
     );
   }
 }
