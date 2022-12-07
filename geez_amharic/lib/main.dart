@@ -173,7 +173,28 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String text = "";
+  final textController = TextEditingController();
+  final outputController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+
+    // Start listening to changes.
+    textController.addListener(_printLatestValue);
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the widget tree.
+    // This also removes the _printLatestValue listener.
+    textController.dispose();
+    super.dispose();
+  }
+
+  void _printLatestValue() {
+    outputController.text = textController.text;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -196,20 +217,16 @@ class _HomeState extends State<Home> {
                 hintText:
                     "Enter Ge'ez word(s) or sentence(s) for translation...",
               ),
-              onChanged: ((value) {
-                setState(() {
-                  text = value;
-                },);
-              }),
+              controller: textController,
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(15.0),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
             child: TextField(
               obscureText: false,
               maxLines: 18,
               enabled: false,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 // labelText: "Ge'ez",
                 suffixIcon: Icon(
                   Icons.copy,
@@ -218,6 +235,7 @@ class _HomeState extends State<Home> {
                 border: OutlineInputBorder(),
                 hintText: "Translated items will appear here",
               ),
+              controller: outputController,
             ),
           ),
         ],
