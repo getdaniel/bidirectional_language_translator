@@ -42,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text(
           widget.title,
@@ -164,27 +165,62 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  String text = "";
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: const Center(
-        child: TextField(
-          obscureText: false,
-          maxLines: 10,
-          decoration: InputDecoration(
-            // labelText: "Ge'ez",
-            suffixIcon: Icon(
-              Icons.copy,
-              color: Colors.blue,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: TextField(
+              obscureText: false,
+              maxLines: 18,
+              decoration: const InputDecoration(
+                // labelText: "Ge'ez",
+                suffixIcon: Icon(
+                  Icons.copy,
+                  color: Colors.blue,
+                ),
+                border: OutlineInputBorder(),
+                hintText:
+                    "Enter Ge'ez word(s) or sentence(s) for translation...",
+              ),
+              onChanged: ((value) {
+                setState(() {
+                  text = value;
+                },);
+              }),
             ),
-            border: OutlineInputBorder(),
-            hintText: "Enter Ge'ez word(s) or sentence(s) for translation...",
           ),
-        ),
+          const Padding(
+            padding: EdgeInsets.all(15.0),
+            child: TextField(
+              obscureText: false,
+              maxLines: 18,
+              enabled: false,
+              decoration: InputDecoration(
+                // labelText: "Ge'ez",
+                suffixIcon: Icon(
+                  Icons.copy,
+                  color: Colors.blue,
+                ),
+                border: OutlineInputBorder(),
+                hintText: "Translated items will appear here",
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -197,14 +233,31 @@ class Learn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: const Center(
-          child: Text(
-        "What is Ge'ez Language?\n"
-        "Ge'ez is an ancient Ethiopian Semitic language.The language originates from what is now northern Ethiopia and Eritrea.",
-        style: TextStyle(
-          fontSize: 15,
-        ),
-      )),
+      child: Column(
+        children: const [
+          Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Text(
+              "Why Ge'ez Language?",
+              style: TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(15.0),
+            child: Text(
+              "Ge'ez is an ancient Ethiopian Semitic language."
+              "The language originates from what is now northern Ethiopia and Eritrea."
+              "I am proud of being Ethiopian!",
+              style: TextStyle(
+                fontSize: 25,
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
