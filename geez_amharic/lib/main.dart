@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:geez_amharic/home.dart';
+import 'package:geez_amharic/know_geez.dart';
 
 void main() {
   runApp(const MyApp());
@@ -157,121 +159,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                 ),
               ],
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
-
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  final textController = TextEditingController();
-  final outputController = TextEditingController();
-
-  @override
-  void initState() {
-    super.initState();
-
-    // Start listening to changes.
-    textController.addListener(_printLatestValue);
-  }
-
-  @override
-  void dispose() {
-    // Clean up the controller when the widget is removed from the widget tree.
-    // This also removes the _printLatestValue listener.
-    textController.dispose();
-    super.dispose();
-  }
-
-  void _printLatestValue() {
-    outputController.text = textController.text;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: TextField(
-              obscureText: false,
-              maxLines: 18,
-              decoration: const InputDecoration(
-                // labelText: "Ge'ez",
-                suffixIcon: Icon(
-                  Icons.copy,
-                  color: Colors.blue,
-                ),
-                border: OutlineInputBorder(),
-                hintText:
-                    "Enter Ge'ez word(s) or sentence(s) for translation...",
-              ),
-              controller: textController,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: TextField(
-              obscureText: false,
-              maxLines: 18,
-              enabled: false,
-              decoration: const InputDecoration(
-                // labelText: "Ge'ez",
-                suffixIcon: Icon(
-                  Icons.copy,
-                  color: Colors.blue,
-                ),
-                border: OutlineInputBorder(),
-                hintText: "Translated items will appear here",
-              ),
-              controller: outputController,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class Learn extends StatelessWidget {
-  const Learn({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: Column(
-        children: const [
-          Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Text(
-              "Why Ge'ez Language?",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Text(
-              "Ge'ez is an ancient Ethiopian Semitic language."
-              "The language originates from what is now northern Ethiopia and Eritrea."
-              "I am proud of being Ethiopian!",
-              style: TextStyle(
-                fontSize: 25,
-              ),
             ),
           ),
         ],
