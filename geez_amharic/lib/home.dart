@@ -36,7 +36,7 @@ class _HomeState extends State<Home> {
     Map lang = await json.decode(response);
     
     lang.forEach((key, value) {
-      if (textController.text == '$key') {
+      if ('$key' == textController.text) {
         outputController.text = '$value';
       }
     });
@@ -54,9 +54,8 @@ class _HomeState extends State<Home> {
               obscureText: false,
               maxLines: 18,
               decoration: const InputDecoration(
-                // labelText: "Ge'ez",
                 suffixIcon: Icon(
-                  Icons.copy,
+                  Icons.paste,
                   color: Colors.blue,
                 ),
                 border: OutlineInputBorder(),
@@ -71,10 +70,10 @@ class _HomeState extends State<Home> {
             child: TextField(
               obscureText: false,
               maxLines: 18,
+              enabled: false,
               decoration: const InputDecoration(
-                // labelText: "Ge'ez",
                 suffixIcon: Icon(
-                  Icons.copy,
+                  Icons.copy_all,
                   color: Colors.blue,
                 ),
                 border: OutlineInputBorder(),
