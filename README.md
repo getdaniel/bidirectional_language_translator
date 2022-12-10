@@ -9,4 +9,4 @@ Simple Language Translator Mobile Application with Flutter
 `Start to code.` :grin:<br>
 
 ## Authors :man_technologist: :woman_technologist: :ethiopia:
-* **DANIEL GETANEH** <[ShagizMan](https://www.github.com/ShagizMan)>
+* **DANIEL GETANEH** <[getdaniel](https://www.github.com/getdaniel)>
