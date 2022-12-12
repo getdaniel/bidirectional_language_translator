@@ -6,7 +6,7 @@ class Learn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: Column(
+      child: ListView(
         children: const [
           ExpansionTile(
             title: Text("What is Ge'ez"),

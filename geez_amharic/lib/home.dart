@@ -10,8 +10,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  // the textfield's controllers
   final textController = TextEditingController();
   final outputController = TextEditingController();
+
+  // Initial Selected Value
+  String dropdownvalue = "Ge'ez";
+
+  // List of items in our dropdown menu
+  var items = ["Ge'ez", 'Amharic'];
 
   @override
   void initState() {
@@ -46,45 +53,69 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
-      child: Expanded(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: TextField(
-                obscureText: false,
-                maxLines: 18,
-                decoration: const InputDecoration(
-                  suffixIcon: Icon(
-                    Icons.paste,
-                    color: Colors.blue,
-                  ),
-                  border: OutlineInputBorder(),
-                  hintText:
-                      "Enter Ge'ez word(s) or sentence(s) for translation...",
-                ),
-                controller: textController,
+      child: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Center(
+              child: DropdownButton(
+                // Initial Value
+                value: dropdownvalue,
+
+                // Down Arrow Icon
+                icon: const Icon(Icons.keyboard_arrow_down),
+
+                // Array list of items
+                items: items.map((String items) {
+                  return DropdownMenuItem(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+                // After selecting the desired option,it will
+                // change button value to selected value
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdownvalue = newValue!;
+                  });
+                },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: TextField(
-                obscureText: false,
-                maxLines: 18,
-                enabled: false,
-                decoration: const InputDecoration(
-                  suffixIcon: Icon(
-                    Icons.copy_all,
-                    color: Colors.blue,
-                  ),
-                  border: OutlineInputBorder(),
-                  hintText: "Translated items will appear here",
+          ),
+          Padding(
+            padding: const EdgeInsets.all(5.0),
+            child: TextField(
+              obscureText: false,
+              maxLines: 18,
+              decoration: const InputDecoration(
+                suffixIcon: Icon(
+                  Icons.paste,
+                  color: Colors.blue,
                 ),
-                controller: outputController,
+                border: OutlineInputBorder(),
+                hintText: "Enter word(s) or sentence(s) for translation...",
               ),
+              controller: textController,
             ),
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: TextField(
+              obscureText: false,
+              maxLines: 18,
+              enabled: false,
+              decoration: const InputDecoration(
+                suffixIcon: Icon(
+                  Icons.copy_all,
+                  color: Colors.blue,
+                ),
+                border: OutlineInputBorder(),
+                hintText: "Translated items will appear here",
+              ),
+              controller: outputController,
+            ),
+          ),
+        ],
       ),
     );
   }
