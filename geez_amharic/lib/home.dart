@@ -39,7 +39,7 @@ class _HomeState extends State<Home> {
   // Fetch content from the json file
   Future<void> readJson() async {
     final String response =
-        await rootBundle.loadString('assets/files/language_dict.json');
+        await rootBundle.loadString('assets/files/geez_amharic.json');
     Map lang = await json.decode(response);
 
     lang.forEach((key, value) {
