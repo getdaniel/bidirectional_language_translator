@@ -63,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const UserAccountsDrawerHeader(
               accountName:
                   Text("Language Translator", style: TextStyle(fontSize: 25)),
-              accountEmail: Text("Geez-Amharic",
+              accountEmail: Text("Ge'ez to Amharic",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.brown,
