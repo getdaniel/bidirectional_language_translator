@@ -5,30 +5,64 @@ class Learn extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
+    return Card(
       child: Column(
         children: const [
-          Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Text(
-              "Why Ge'ez Language?",
-              style: TextStyle(
-                fontSize: 30,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+          ExpansionTile(
+            title: Text("What is Ge'ez"),
+            children: <Widget>[
+              ListTile(
+                title: Text("Ge'ez is an ancient language."),
+              )
+            ],
           ),
-          Padding(
-            padding: EdgeInsets.all(15.0),
-            child: Text(
-              "Ge'ez is an ancient Ethiopian Semitic language."
-              "The language originates from what is now northern Ethiopia and Eritrea."
-              "I am proud of being Ethiopian!",
-              style: TextStyle(
-                fontSize: 25,
-              ),
-            ),
+          ExpansionTile(
+            title: Text("What is Ge'ez"),
+            children: <Widget>[
+              ListTile(
+                title: Text("Ge'ez is an ancient language."),
+              )
+            ],
+          ),
+          ExpansionTile(
+            title: Text("What is Ge'ez"),
+            children: <Widget>[
+              ListTile(
+                title: Text("Ge'ez is an ancient language."),
+              )
+            ],
+          ),
+          ExpansionTile(
+            title: Text("What is Ge'ez"),
+            children: <Widget>[
+              ListTile(
+                title: Text("Ge'ez is an ancient language."),
+              )
+            ],
+          ),
+          ExpansionTile(
+            title: Text("What is Ge'ez"),
+            children: <Widget>[
+              ListTile(
+                title: Text("Ge'ez is an ancient language."),
+              )
+            ],
+          ),
+          ExpansionTile(
+            title: Text("What is Ge'ez"),
+            children: <Widget>[
+              ListTile(
+                title: Text("Ge'ez is an ancient language."),
+              )
+            ],
+          ),
+          ExpansionTile(
+            title: Text("What is Ge'ez"),
+            children: <Widget>[
+              ListTile(
+                title: Text("Ge'ez is an ancient language."),
+              )
+            ],
           ),
         ],
       ),

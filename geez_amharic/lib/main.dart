@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:geez_amharic/about_us.dart';
 import 'package:geez_amharic/home.dart';
 import 'package:geez_amharic/know_geez.dart';
 
@@ -39,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   final pages = [
     const Home(),
     const Learn(),
+    const About(),
   ];
 
   @override
@@ -61,7 +63,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const UserAccountsDrawerHeader(
               accountName:
                   Text("Language Translator", style: TextStyle(fontSize: 25)),
-              accountEmail: Text("Developed By: YDY",
+              accountEmail: Text("Geez-Amharic",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.brown,
@@ -80,18 +82,33 @@ class _MyHomePageState extends State<MyHomePage> {
                 style: TextStyle(fontSize: 20),
               ),
               onTap: () {
+                const Home();
                 Navigator.pop(context);
               },
+            ),
+            ListTile(
+              leading: const Icon(
+                Icons.language,
+              ),
+              title: const Text(
+                "Ge'ez",
+                style: TextStyle(fontSize: 20),
+              ),
+              onTap: (() {
+                const Learn();
+                Navigator.pop(context);
+              }),
             ),
             ListTile(
               leading: const Icon(
                 Icons.person,
               ),
               title: const Text(
-                "About Us",
+                "About",
                 style: TextStyle(fontSize: 20),
               ),
               onTap: (() {
+                const About();
                 Navigator.pop(context);
               }),
             ),
@@ -153,6 +170,29 @@ class _MyHomePageState extends State<MyHomePage> {
                   const Icon(Icons.school_outlined),
                 const Text(
                   "Know Ge'ez",
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          InkWell(
+            onTap: () {
+              setState(() {
+                _selectedIndex = 2;
+              });
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                if (_selectedIndex == 2)
+                  const Icon(Icons.person_rounded)
+                else
+                  const Icon(Icons.person_outlined),
+                const Text(
+                  "About",
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
