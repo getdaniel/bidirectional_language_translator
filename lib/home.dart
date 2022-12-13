@@ -68,7 +68,7 @@ class _HomeState extends State<Home> {
       child: ListView(
         children: [
           Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(10.0),
             child: Center(
               child: DropdownButton(
                 // Initial Value
@@ -95,7 +95,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(10.0),
             child: TextField(
               obscureText: false,
               maxLines: 18,
@@ -111,7 +111,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(10.0),
             child: TextField(
               obscureText: false,
               maxLines: 18,
