@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -15,10 +16,10 @@ class _HomeState extends State<Home> {
   final outputController = TextEditingController();
 
   // Initial Selected Value
-  String dropdownvalue = "Ge'ez";
+  String dropdownvalue = "Ge'ez to Amharic";
 
   // List of items in our dropdown menu
-  var items = ["Ge'ez", 'Amharic'];
+  var items = ["Ge'ez to Amharic", "Amharic to Ge'ez"];
 
   @override
   void initState() {
@@ -38,7 +39,7 @@ class _HomeState extends State<Home> {
 
   // Fetch content from the json file
   Future<void> readJson() async {
-    if (dropdownvalue == "Ge'ez") {
+    if (dropdownvalue == "Ge'ez to Amharic") {
       final String response =
           await rootBundle.loadString('assets/files/geez_amharic.json');
       Map lang = await json.decode(response);
@@ -70,27 +71,46 @@ class _HomeState extends State<Home> {
           Padding(
             padding: const EdgeInsets.all(10.0),
             child: Center(
-              child: DropdownButton(
-                // Initial Value
-                value: dropdownvalue,
-
-                // Down Arrow Icon
-                icon: const Icon(Icons.keyboard_arrow_down),
-
-                // Array list of items
-                items: items.map((String items) {
-                  return DropdownMenuItem(
-                    value: items,
-                    child: Text(items),
-                  );
-                }).toList(),
-                // After selecting the desired option,it will
-                // change button value to selected value
-                onChanged: (String? newValue) {
-                  setState(() {
-                    dropdownvalue = newValue!;
-                  });
-                },
+              child: DropdownButtonHideUnderline(
+                child: DropdownButton2(
+                  // Initial Value
+                  value: dropdownvalue,
+                  // Down Arrow Icon
+                  icon: const Icon(Icons.keyboard_arrow_down),
+                  // Array list of items
+                  items: items.map((String items) {
+                    return DropdownMenuItem<String>(
+                      value: items,
+                      child: Text(items),
+                    );
+                  }).toList(),
+                  // After selecting the desired option,it will
+                  // change button value to selected value
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      dropdownvalue = newValue!;
+                    });
+                  },
+                  iconEnabledColor: Colors.teal,
+                  buttonWidth: 300,
+                  buttonPadding: const EdgeInsets.only(left: 15, right: 15),
+                  buttonDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: Colors.teal,
+                    ),
+                  ),
+                  itemHeight: 40,
+                  itemPadding: const EdgeInsets.only(left: 15, right: 15),
+                  dropdownWidth: 300,
+                  offset: const Offset(0, -3),
+                  dropdownDecoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    border: Border.all(
+                      color: Colors.teal,
+                    )
+                  ),
+                ),
               ),
             ),
           ),
