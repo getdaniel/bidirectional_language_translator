@@ -39,27 +39,21 @@ class _HomeState extends State<Home> {
 
   // Fetch content from the json file
   Future<void> readJson() async {
-    if (dropdownvalue == "Ge'ez to Amharic") {
-      final String response =
+    final String response =
           await rootBundle.loadString('assets/files/geez_amharic.json');
-      Map lang = await json.decode(response);
+    Map lang = await json.decode(response);
 
-      lang.forEach((key, value) {
-        if ('$key' == textController.text) {
+    lang.forEach((key, value) {
+	if (dropdownvalue == "Ge'ez to Amharic") {
+	   if ('$key' == textController.text) {
           outputController.text = '$value';
+           }
+        } else {
+	    if ('$value' == textController.text) {
+          	outputController.text = '$key';
+            }
         }
-      });
-    } else {
-      final String response =
-          await rootBundle.loadString('assets/files/amharic_geez.json');
-      Map lang = await json.decode(response);
-
-      lang.forEach((key, value) {
-        if ('$key' == textController.text) {
-          outputController.text = '$value';
-        }
-      });
-    }
+    });
   }
 
   @override
