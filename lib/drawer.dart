@@ -3,7 +3,7 @@ import 'about_us.dart';
 import 'home.dart';
 import 'know_geez.dart';
 
-drawerState(BuildContext context) {
+Widget drawerState(BuildContext context) {
   return Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
