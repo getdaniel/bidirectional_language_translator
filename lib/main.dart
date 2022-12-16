@@ -3,6 +3,8 @@ import 'package:simple_language_translator/about_us.dart';
 import 'package:simple_language_translator/home.dart';
 import 'package:simple_language_translator/know_geez.dart';
 
+import 'app_bar.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -47,14 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        title: Text(
-          widget.title,
-          style: const TextStyle(
-            fontWeight: FontWeight.bold,
-          ),
-        ),
-      ),
+      appBar: appBarState(),
       body: pages[_selectedIndex],
       drawer: Drawer(
         child: ListView(
@@ -63,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
             const UserAccountsDrawerHeader(
               accountName:
                   Text("Language Translator", style: TextStyle(fontSize: 25)),
-              accountEmail: Text("Ge'ez to Amharic",
+              accountEmail: Text("Ge'ez <-> Amharic",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.brown,
