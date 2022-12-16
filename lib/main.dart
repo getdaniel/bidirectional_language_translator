@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:simple_language_translator/about_us.dart';
-import 'package:simple_language_translator/home.dart';
-import 'package:simple_language_translator/know_geez.dart';
-
+import 'about_us.dart';
+import 'home.dart';
+import 'know_geez.dart';
 import 'app_bar.dart';
+import 'drawer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -51,65 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
       resizeToAvoidBottomInset: false,
       appBar: appBarState(),
       body: pages[_selectedIndex],
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            const UserAccountsDrawerHeader(
-              accountName:
-                  Text("Language Translator", style: TextStyle(fontSize: 25)),
-              accountEmail: Text("Ge'ez <-> Amharic",
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-              currentAccountPicture: CircleAvatar(
-                backgroundColor: Colors.brown,
-                child: Text(
-                  "ግዕዝ-አማርኛ",
-                  style: TextStyle(fontSize: 14),
-                ),
-              ),
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.home,
-              ),
-              title: const Text(
-                "Home",
-                style: TextStyle(fontSize: 20,),
-              ),
-              onTap: () {
-                const Home();
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.language,
-              ),
-              title: const Text(
-                "Ge'ez",
-                style: TextStyle(fontSize: 20),
-              ),
-              onTap: (() {
-                const Learn();
-                Navigator.pop(context);
-              }),
-            ),
-            ListTile(
-              leading: const Icon(
-                Icons.person,
-              ),
-              title: const Text(
-                "About",
-                style: TextStyle(fontSize: 20),
-              ),
-              onTap: (() {
-                const About();
-                Navigator.pop(context);
-              }),
-            ),
-          ],
-        ),
-      ),
+      drawer: drawerState(context),
       bottomNavigationBar: buildMyNavBar(context),
     );
   }
