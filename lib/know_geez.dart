@@ -9,43 +9,31 @@ class Learn extends StatefulWidget {
 }
 
 class _LearnState extends State<Learn> {
-  String? _data, _aplhabet, _numbers, _special;
+  String? _data, _aplhabet, _numbers, _example, _special;
 
   Future<void> whatGeez() async {
-    final String response =
+    final String what =
         await rootBundle.loadString('assets/texts/what_geez.txt');
-    setState(() {
-      _data = response;
-    });
-  }
-  Future<void> alphabetGeez() async {
-    final String response =
+    final String alphabet =
         await rootBundle.loadString('assets/texts/geez_alphabet.txt');
-    setState(() {
-      _aplhabet = response;
-    });
-  }
-  Future<void> numbersGeez() async {
-    final String response =
+    final String numbers =
         await rootBundle.loadString('assets/texts/geez_number.txt');
-    setState(() {
-      _numbers = response;
-    });
-  }
-  Future<void> geezSpecial() async {
-    final String response =
+    final String special =
         await rootBundle.loadString('assets/texts/geez_special.txt');
+    final String example =
+        await rootBundle.loadString('assets/texts/geez_example.txt');
     setState(() {
-      _special = response;
+      _data = what;
+      _aplhabet = alphabet;
+      _numbers = numbers;
+      _special = special;
+      _example = example;
     });
   }
 
   @override
   Widget build(BuildContext context) {
     whatGeez();
-    alphabetGeez();
-    numbersGeez();
-    geezSpecial();
     return Card(
       child: ListView(
         children: [
@@ -121,7 +109,7 @@ class _LearnState extends State<Learn> {
             children: [
               Align(
                 child: Text(
-                  _numbers ?? "Nothing Data",
+                  _example ?? "Nothing Data",
                   style: const TextStyle(
                     fontSize: 15,
                   ),
@@ -161,7 +149,7 @@ class _LearnState extends State<Learn> {
             children: [
               Align(
                 child: Text(
-                  _numbers ?? "Nothing Data",
+                  _example ?? "Nothing Data",
                   style: const TextStyle(
                     fontSize: 15,
                   ),
