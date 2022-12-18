@@ -4,6 +4,7 @@ import 'home.dart';
 import 'know_geez.dart';
 import 'app_bar.dart';
 import 'drawer.dart';
+import 'routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,18 +12,24 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  static const String routeName = '/home';
+
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Language Translation',
       theme: ThemeData(
-          primarySwatch: Colors.teal,
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          hoverColor: Colors.transparent),
+        primarySwatch: Colors.teal,
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        hoverColor: Colors.transparent,
+      ),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Simple Language Translator'),
+      routes: {
+        Routes.home: (context) => const MyApp(),
+      },
     );
   }
 }

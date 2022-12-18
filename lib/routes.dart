@@ -1,4 +1,5 @@
+import 'main.dart';
+
 class Routes {
-  // static const String translator = Translator.routeName;
-  // static const String learn =  Learn.routeName;
+  static const String home = MyApp.routeName;
 }

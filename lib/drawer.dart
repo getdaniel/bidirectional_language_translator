@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'about_us.dart';
-import 'home.dart';
 import 'know_geez.dart';
+import 'routes.dart';
 
 Widget drawerState(BuildContext context) {
   return Drawer(
@@ -23,25 +23,24 @@ Widget drawerState(BuildContext context) {
         ),
         ListTile(
           leading: const Icon(
-            Icons.home,
+            Icons.home_rounded,
           ),
           title: const Text(
-            "Home",
+            "Get Started",
             style: TextStyle(
               fontSize: 20,
             ),
           ),
           onTap: () {
-            const Home();
-            Navigator.pop(context);
+            Navigator.pushReplacementNamed(context, Routes.home);
           },
         ),
         ListTile(
           leading: const Icon(
-            Icons.language,
+            Icons.settings_rounded,
           ),
           title: const Text(
-            "Ge'ez",
+            "Settings",
             style: TextStyle(fontSize: 20),
           ),
           onTap: (() {
@@ -51,10 +50,10 @@ Widget drawerState(BuildContext context) {
         ),
         ListTile(
           leading: const Icon(
-            Icons.person,
+            Icons.get_app_rounded,
           ),
           title: const Text(
-            "About",
+            "About App",
             style: TextStyle(fontSize: 20),
           ),
           onTap: (() {
