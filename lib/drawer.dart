@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'about_us.dart';
-import 'know_geez.dart';
 import 'routes.dart';
 
 Widget drawerState(BuildContext context) {
@@ -44,21 +42,31 @@ Widget drawerState(BuildContext context) {
             style: TextStyle(fontSize: 20),
           ),
           onTap: (() {
-            const Learn();
-            Navigator.pop(context);
+            Navigator.pushReplacementNamed(context, Routes.settings);
           }),
         ),
         ListTile(
           leading: const Icon(
-            Icons.get_app_rounded,
+            Icons.person_rounded,
           ),
           title: const Text(
-            "About App",
+            "About Us",
             style: TextStyle(fontSize: 20),
           ),
           onTap: (() {
-            const About();
-            Navigator.pop(context);
+            Navigator.pushReplacementNamed(context, Routes.about);
+          }),
+        ),
+        ListTile(
+          leading: const Icon(
+            Icons.share_rounded,
+          ),
+          title: const Text(
+            "Share App",
+            style: TextStyle(fontSize: 20),
+          ),
+          onTap: (() {
+            Navigator.pushReplacementNamed(context, Routes.about);
           }),
         ),
       ],

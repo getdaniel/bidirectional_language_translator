@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'about_us.dart';
+import 'package:simple_language_translator/about_us.dart';
+import 'package:simple_language_translator/settings.dart';
 import 'home.dart';
 import 'know_geez.dart';
 import 'app_bar.dart';
@@ -13,7 +14,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   static const String routeName = '/home';
-
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +29,8 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(title: 'Simple Language Translator'),
       routes: {
         Routes.home: (context) => const MyApp(),
+        Routes.about:(context) => const About(),
+        Routes.settings:(context) => const Settings(),
       },
     );
   }
@@ -49,7 +51,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final pages = [
     const Home(),
     const Learn(),
-    const About(),
   ];
 
   @override
@@ -114,29 +115,6 @@ class _MyHomePageState extends State<MyHomePage> {
                   const Icon(Icons.school_outlined),
                 const Text(
                   "Know Ge'ez",
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          InkWell(
-            onTap: () {
-              setState(() {
-                _selectedIndex = 2;
-              });
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                if (_selectedIndex == 2)
-                  const Icon(Icons.person_rounded)
-                else
-                  const Icon(Icons.person_outlined),
-                const Text(
-                  "About",
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.bold,
