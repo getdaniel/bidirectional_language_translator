@@ -17,8 +17,8 @@ class _HomeState extends State<About> {
     return Scaffold(
       appBar: appBarState(),
       drawer: drawerState(context),
-      body: Container(
-        color: Colors.white,
+      body: Padding(
+        padding: const EdgeInsets.all(15.0),
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ContactUs(

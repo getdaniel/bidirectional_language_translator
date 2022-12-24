@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:simple_language_translator/about_us.dart';
-import 'package:simple_language_translator/settings.dart';
+import 'about_us.dart';
+import 'settings.dart';
 import 'home.dart';
 import 'know_geez.dart';
 import 'app_bar.dart';
@@ -21,9 +21,7 @@ class MyApp extends StatelessWidget {
       title: 'Language Translation',
       theme: ThemeData(
         primarySwatch: Colors.teal,
-        splashColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        hoverColor: Colors.transparent,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Simple Language Translator'),
