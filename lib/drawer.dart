@@ -31,7 +31,7 @@ Widget drawerState(BuildContext context) {
             ),
           ),
           onTap: () {
-            Navigator.pushReplacementNamed(context, Routes.home);
+            Navigator.pushReplacementNamed(context, Routes.homepage);
           },
         ),
         ListTile(

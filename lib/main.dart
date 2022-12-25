@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:simple_language_translator/splash_screen.dart';
 import 'about_us.dart';
 import 'settings.dart';
 import 'home.dart';
@@ -13,7 +14,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-  static const String routeName = '/home';
 
   @override
   Widget build(BuildContext context) {
@@ -24,11 +24,12 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: 'Simple Language Translator'),
+      home: const SplashScreenPage(),
       routes: {
-        Routes.home: (context) => const MyApp(),
         Routes.about:(context) => const About(),
         Routes.settings:(context) => const Settings(),
+        Routes.homepage:(context) => const MyHomePage(title: "Simple Language Translator"),
+        Routes.splash:(context) => const SplashScreenPage(),
       },
     );
   }
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
+  static const String routeName = '/homepage';
 
   final String title;
 
