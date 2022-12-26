@@ -1,19 +1,6 @@
 @startuml class_diagrams
+
 set namespaceSeparator ::
-
-class "simple_language_translator::splash_screen.dart::SplashScreenPage" {
-  {static} +String routeName
-  +State<SplashScreenPage> createState()
-}
-
-"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "simple_language_translator::splash_screen.dart::SplashScreenPage"
-
-class "simple_language_translator::splash_screen.dart::_SplashScreenPageState" {
-  +void initState()
-  +Widget build()
-}
-
-"flutter::src::widgets::framework.dart::State" <|-- "simple_language_translator::splash_screen.dart::_SplashScreenPageState"
 
 class "simple_language_translator::about_us.dart::About" {
   {static} +String routeName
@@ -106,7 +93,6 @@ class "simple_language_translator::routes.dart::Routes" {
   {static} +String about
   {static} +String settings
   {static} +String homepage
-  {static} +String splash
 }
 
 
