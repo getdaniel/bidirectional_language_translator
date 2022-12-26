@@ -39,6 +39,7 @@ dependencies:
   dropdown_button2: ^1.9.2
   contactus: ^1.2.0
   share: ^2.0.4
+  dcdg: ^4.1.0
 
 dev_dependencies:
   flutter_test:
