@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:simple_language_translator/splash_screen.dart';
 import 'about_us.dart';
 import 'settings.dart';
 import 'home.dart';
@@ -24,12 +23,11 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       debugShowCheckedModeBanner: false,
-      home: const SplashScreenPage(),
+      home: const MyHomePage(title: "Simple Language Translator"),
       routes: {
         Routes.about:(context) => const About(),
         Routes.settings:(context) => const Settings(),
         Routes.homepage:(context) => const MyHomePage(title: "Simple Language Translator"),
-        Routes.splash:(context) => const SplashScreenPage(),
       },
     );
   }
