@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -40,19 +41,19 @@ class _HomeState extends State<Home> {
   // Fetch content from the json file
   Future<void> readJson() async {
     final String response =
-          await rootBundle.loadString('assets/files/geez_amharic.json');
+        await rootBundle.loadString('assets/files/geez_amharic.json');
     Map lang = await json.decode(response);
 
     lang.forEach((key, value) {
-	if (dropdownvalue == "Ge'ez to Amharic") {
-	   if ('$key' == textController.text) {
+      if (dropdownvalue == "Ge'ez to Amharic") {
+        if ('$key' == textController.text) {
           outputController.text = '$value';
-           }
-        } else {
-	    if ('$value' == textController.text) {
-          	outputController.text = '$key';
-            }
         }
+      } else {
+        if ('$value' == textController.text) {
+          outputController.text = '$key';
+        }
+      }
     });
   }
 
@@ -99,11 +100,10 @@ class _HomeState extends State<Home> {
                   dropdownWidth: 300,
                   offset: const Offset(0, -3),
                   dropdownDecoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(
-                      color: Colors.teal,
-                    )
-                  ),
+                      borderRadius: BorderRadius.circular(15),
+                      border: Border.all(
+                        color: Colors.teal,
+                      )),
                 ),
               ),
             ),
@@ -113,12 +113,30 @@ class _HomeState extends State<Home> {
             child: TextField(
               obscureText: false,
               maxLines: 18,
-              decoration: const InputDecoration(
-                suffixIcon: Icon(
-                  Icons.paste,
-                  color: Colors.blue,
+              decoration: InputDecoration(
+                suffixIcon: IconButton(
+                  onPressed: () async {
+                    ClipboardData? data = await Clipboard.getData("text/plain");
+                    String? text = data?.text;
+                    textController.text = text!;
+
+                    // Show the toast message
+                    Fluttertoast.showToast(
+                      msg: "Text pasted from the clipboard",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 2,
+                      fontSize: 16,
+                      textColor: Colors.blue,
+                      backgroundColor: Colors.white,
+                    );
+                  },
+                  icon: const Icon(
+                    Icons.paste,
+                    color: Colors.blue,
+                  ),
                 ),
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 hintText: "Enter word(s) or sentence(s) for translation...",
               ),
               controller: textController,
@@ -129,13 +147,30 @@ class _HomeState extends State<Home> {
             child: TextField(
               obscureText: false,
               maxLines: 18,
-              enabled: false,
-              decoration: const InputDecoration(
-                suffixIcon: Icon(
-                  Icons.copy_all,
-                  color: Colors.blue,
+              readOnly: true,
+              decoration: InputDecoration(
+                suffixIcon: IconButton(
+                  icon: const Icon(
+                    Icons.copy_all,
+                    color: Colors.blue,
+                  ),
+                  onPressed: () {
+                    Clipboard.setData(
+                        ClipboardData(text: outputController.text));
+
+                    // Show the toast message
+                    Fluttertoast.showToast(
+                      msg: "Text copied to the clipboard",
+                      toastLength: Toast.LENGTH_SHORT,
+                      gravity: ToastGravity.BOTTOM,
+                      timeInSecForIosWeb: 2,
+                      fontSize: 16,
+                      textColor: Colors.blue,
+                      backgroundColor: Colors.white,
+                    );
+                  },
                 ),
-                border: OutlineInputBorder(),
+                border: const OutlineInputBorder(),
                 hintText: "Translated items will appear here",
               ),
               controller: outputController,
