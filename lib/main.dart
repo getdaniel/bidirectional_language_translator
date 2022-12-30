@@ -22,12 +22,14 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.teal,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: "Simple Language Translator"),
       routes: {
-        Routes.about:(context) => const About(),
-        Routes.settings:(context) => const Settings(),
-        Routes.homepage:(context) => const MyHomePage(title: "Simple Language Translator"),
+        Routes.about: (context) => const About(),
+        Routes.settings: (context) => const SettingsPage(),
+        Routes.homepage: (context) =>
+            const MyHomePage(title: "Simple Language Translator"),
       },
     );
   }

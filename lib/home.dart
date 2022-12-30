@@ -59,61 +59,61 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Center(
-              child: DropdownButtonHideUnderline(
-                child: DropdownButton2(
-                  // Initial Value
-                  value: dropdownvalue,
-                  // Down Arrow Icon
-                  icon: const Icon(Icons.keyboard_arrow_down),
-                  // Array list of items
-                  items: items.map((String items) {
-                    return DropdownMenuItem<String>(
-                      value: items,
-                      child: Text(items),
-                    );
-                  }).toList(),
-                  // After selecting the desired option,it will
-                  // change button value to selected value
-                  onChanged: (String? newValue) {
-                    setState(() {
-                      dropdownvalue = newValue!;
-                    });
-                  },
-                  iconEnabledColor: Colors.teal,
-                  buttonWidth: 300,
-                  buttonPadding: const EdgeInsets.only(left: 15, right: 15),
-                  buttonDecoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(15),
-                    border: Border.all(
-                      color: Colors.teal,
-                    ),
+    return ListView(
+      children: [
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Center(
+            child: DropdownButtonHideUnderline(
+              child: DropdownButton2(
+                // Initial Value
+                value: dropdownvalue,
+                // Down Arrow Icon
+                icon: const Icon(Icons.keyboard_arrow_down),
+                // Array list of items
+                items: items.map((String items) {
+                  return DropdownMenuItem<String>(
+                    value: items,
+                    child: Text(items),
+                  );
+                }).toList(),
+                // After selecting the desired option,it will
+                // change button value to selected value
+                onChanged: (String? newValue) {
+                  setState(() {
+                    dropdownvalue = newValue!;
+                  });
+                },
+                iconEnabledColor: Colors.teal,
+                buttonWidth: 300,
+                buttonPadding: const EdgeInsets.only(left: 15, right: 15),
+                buttonDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: Colors.teal,
                   ),
-                  itemHeight: 40,
-                  itemPadding: const EdgeInsets.only(left: 15, right: 15),
-                  dropdownWidth: 300,
-                  offset: const Offset(0, -3),
-                  dropdownDecoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(15),
-                      border: Border.all(
-                        color: Colors.teal,
-                      )),
+                ),
+                itemHeight: 40,
+                itemPadding: const EdgeInsets.only(left: 15, right: 15),
+                dropdownWidth: 300,
+                offset: const Offset(0, -3),
+                dropdownDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: Colors.teal,
+                  ),
                 ),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: TextField(
-              obscureText: false,
-              maxLines: 18,
-              decoration: InputDecoration(
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: TextField(
+            obscureText: false,
+            maxLines: 18,
+            cursorColor: Colors.teal,
+            decoration: InputDecoration(
                 suffixIcon: IconButton(
                   onPressed: () async {
                     ClipboardData? data = await Clipboard.getData("text/plain");
@@ -138,17 +138,17 @@ class _HomeState extends State<Home> {
                 ),
                 border: const OutlineInputBorder(),
                 hintText: "Enter word(s) or sentence(s) for translation...",
-              ),
-              controller: textController,
-            ),
+                hintStyle: const TextStyle(color: Colors.teal)),
+            controller: textController,
           ),
-          Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: TextField(
-              obscureText: false,
-              maxLines: 18,
-              readOnly: true,
-              decoration: InputDecoration(
+        ),
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: TextField(
+            obscureText: false,
+            maxLines: 18,
+            readOnly: true,
+            decoration: InputDecoration(
                 suffixIcon: IconButton(
                   icon: const Icon(
                     Icons.copy_all,
@@ -172,12 +172,11 @@ class _HomeState extends State<Home> {
                 ),
                 border: const OutlineInputBorder(),
                 hintText: "Translated items will appear here",
-              ),
-              controller: outputController,
-            ),
+                hintStyle: const TextStyle(color: Colors.teal)),
+            controller: outputController,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

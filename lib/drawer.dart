@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:share/share.dart';
+// import 'package:share_plus/share_plus.dart';
 import 'routes.dart';
 
 Widget drawerState(BuildContext context) {
@@ -67,7 +67,10 @@ Widget drawerState(BuildContext context) {
             style: TextStyle(fontSize: 20),
           ),
           onTap: (() {
-            Share.share("Check out Ge'ez-Amharic App", subject: "This app may help you!");
+            //Share.share(
+            // "Check out ግዕዝ-አማርኛ App",
+            //  subject: "This app may help you!",
+            //);
           }),
         ),
       ],
