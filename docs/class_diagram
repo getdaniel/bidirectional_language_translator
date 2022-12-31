@@ -1,0 +1,105 @@
+@startuml class_diagram
+
+set namespaceSeparator ::
+
+class "simple_language_translator::about_us.dart::About" {
+  {static} +String routeName
+  +State<About> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "simple_language_translator::about_us.dart::About"
+
+class "simple_language_translator::about_us.dart::_HomeState" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "simple_language_translator::about_us.dart::_HomeState"
+
+class "simple_language_translator::main.dart::MyApp" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "simple_language_translator::main.dart::MyApp"
+
+class "simple_language_translator::main.dart::MyHomePage" {
+  {static} +String routeName
+  +String title
+  +State<MyHomePage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "simple_language_translator::main.dart::MyHomePage"
+
+class "simple_language_translator::main.dart::_MyHomePageState" {
+  -int _selectedIndex
+  +List<StatefulWidget> pages
+  +Widget build()
+  +Container buildMyNavBar()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "simple_language_translator::main.dart::_MyHomePageState"
+
+class "simple_language_translator::settings.dart::SettingsPage" {
+  {static} +String routeName
+  +State<SettingsPage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "simple_language_translator::settings.dart::SettingsPage"
+
+class "simple_language_translator::settings.dart::_SettingState" {
+  -bool _isDarkMode
+  +String dropdownvalue
+  +List<String> items
+  -double _fontsize
+  +bool isDarkMode
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "simple_language_translator::settings.dart::_SettingState"
+
+class "simple_language_translator::know_geez.dart::Learn" {
+  +State<Learn> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "simple_language_translator::know_geez.dart::Learn"
+
+class "simple_language_translator::know_geez.dart::_LearnState" {
+  -String? _data
+  -String? _aplhabet
+  -String? _numbers
+  -String? _example
+  -String? _special
+  +Future<void> whatGeez()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "simple_language_translator::know_geez.dart::_LearnState"
+
+class "simple_language_translator::home.dart::Home" {
+  +State<Home> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "simple_language_translator::home.dart::Home"
+
+class "simple_language_translator::home.dart::_HomeState" {
+  +TextEditingController textController
+  +TextEditingController outputController
+  +String dropdownvalue
+  +List<String> items
+  +void initState()
+  +void dispose()
+  +Future<void> readJson()
+  +Widget build()
+}
+
+"simple_language_translator::home.dart::_HomeState" o-- "flutter::src::widgets::editable_text.dart::TextEditingController"
+"flutter::src::widgets::framework.dart::State" <|-- "simple_language_translator::home.dart::_HomeState"
+
+class "simple_language_translator::routes.dart::Routes" {
+  {static} +String about
+  {static} +String settings
+  {static} +String homepage
+}
+
+
+@enduml
+
