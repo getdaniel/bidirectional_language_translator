@@ -3,13 +3,13 @@ Simple Language Translator Mobile Application with Flutter
 
 ## About the Project :building_construction:
 
-## Built With :building:
+## Built With :atom:
 
-## Get Started :star:
+## Get Started :information_source:
 
-### Prerequist :first:
+### Prerequisite :previous_track_button:
 
-### Installation :down arrow:
+### Installation :down_arrow:
 
 ## Usage :running_man: :running_woman:
 ### Step 1: <br>
@@ -18,12 +18,12 @@ Simple Language Translator Mobile Application with Flutter
 ### Step 2: <br>
 `Start to code.` :grin:<br>
 
-## Contributing :control:
+## Contributing :handshake:
 
 ## Authors :man_technologist: :woman_technologist: :ethiopia:
  * **DANIEL GETANEH** <[getdaniel](https://www.github.com/getdaniel)>
  * **YEZIBALEM AEMRO** <[yeziba](https://www.github.com/yeziba)>
  * **YEABSIRA AYCHILUHM** <[Asimarech](https://www.github.com/Asimarech)>
 
-## LICENSE
+## LICENSE :1st_place_medal:
 Distributted Under the MIT License. See the [LICENCE](https://github.com/getdaniel/simple_language_translator/blob/main/LICENSE)
