@@ -1,9 +1,9 @@
 # Simple-Language-Translator :repeat: :computer:
 Simple Language Translator Mobile Application with Flutter
 
-## About the Project :projector:
+## About the Project :building_construction:
 
-## Built With :building
+## Built With :building:
 
 ## Get Started :star:
 
