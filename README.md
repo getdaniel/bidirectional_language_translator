@@ -21,9 +21,9 @@ Simple Language Translator Mobile Application with Flutter
 ## Contributing :handshake:
 
 ## Authors :man_technologist: :woman_technologist: :ethiopia:
- * **DANIEL GETANEH** <[getdaniel](https://www.github.com/getdaniel)> - [Email](mailto:danielgetaneh2011@gmail.com)
- * **YEZIBALEM AEMRO** <[yeziba](https://www.github.com/yeziba)> - [yeabsiraaychiluhim@gmail.com]()
- * **YEABSIRA AYCHILUHM** <[Asimarech](https://www.github.com/Asimarech)> - [yezbaemiro@gmail.com]()
+ * **DANIEL GETANEH** <[getdaniel](https://www.github.com/getdaniel)> - <[GMail](mailto:danielgetaneh2011@gmail.com)>
+ * **YEZIBALEM AEMRO** <[yeziba](https://www.github.com/yeziba)> - <[GMail](mailto:yeabsiraaychiluhim@gmail.com)>
+ * **YEABSIRA AYCHILUHM** <[Asimarech](https://www.github.com/Asimarech)> - <[GMail](mailto:yezbaemiro@gmail.com)>
 
 ## LICENSE :1st_place_medal:
 Distributted Under the MIT License. See the [LICENCE](https://github.com/getdaniel/simple_language_translator/blob/main/LICENSE)
