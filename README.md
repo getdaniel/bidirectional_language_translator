@@ -21,7 +21,7 @@ Simple Language Translator Mobile Application with Flutter
 ## Contributing :handshake:
 
 ## Authors :man_technologist: :woman_technologist: :ethiopia:
- * **DANIEL GETANEH** <[getdaniel](https://www.github.com/getdaniel)> - [danielgetaneh2011@gmail.com]()
+ * **DANIEL GETANEH** <[getdaniel](https://www.github.com/getdaniel)> - [Email](mailto:danielgetaneh2011@gmail.com)
  * **YEZIBALEM AEMRO** <[yeziba](https://www.github.com/yeziba)> - [yeabsiraaychiluhim@gmail.com]()
  * **YEABSIRA AYCHILUHM** <[Asimarech](https://www.github.com/Asimarech)> - [yezbaemiro@gmail.com]()
 
