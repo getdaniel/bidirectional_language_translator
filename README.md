@@ -1,16 +1,17 @@
-# simple_language_translator
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# Simple-Language-Translator :repeat: :computer:		￼# simple_language_translator
+￼Simple Language Translator Mobile Application with Flutter		
+￼
+￼
+￼## Usage :running_man: :running_woman:		￼A new Flutter project.
+￼### Step 1: <br>		
+￼`git clone git@github.com:ShagizMan/Simple-Language-Translator.git` <br>		
+￼
+￼
+￼### Step 2: <br>		￼## Getting Started
+￼`Start to code.` :grin:<br>		
+￼
+￼
+￼## Authors :man_technologist: :woman_technologist: :ethiopia:		￼This project is a starting point for a Flutter application.
+￼* **DANIEL GETANEH** <[getdaniel](https://www.github.com/getdaniel)>
+ * **YEZIBALEM AEMRO** <[yeziba](https://www.github.com/yeziba)>
+ * **YEABSIRA AYCHILUHM** <[Asimarech](https://www.github.com/Asimarech)>
