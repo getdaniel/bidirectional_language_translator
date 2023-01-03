@@ -1,5 +1,5 @@
 # Simple-Language-Translator :repeat: :computer:
-Simple Language Translator Mobile Application with Flutter
+Simple Language Translator Mobile Application with Flutter framework. The application as a flutter framework, is compatible with Android, iOS, Linux, Windows and Browser(Web). For the time of now it can only ability to translate the Ge'ez langauge to the Amharic language and vice versa.
 
 ## About the Project :building_construction:
 
