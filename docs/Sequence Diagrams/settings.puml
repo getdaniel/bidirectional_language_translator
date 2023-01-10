@@ -1,0 +1,17 @@
+@startuml settings_sequence_diagram
+
+actor User
+
+User -> Settings: Navigate
+Settings -> User: Drawer
+User -> Settings: Settings
+
+alt language?
+  Settings -> User: change language
+else if theme?
+  Settings -> User: change theme
+else if font_size?
+  Settings -> User: Change font size
+end
+
+@enduml

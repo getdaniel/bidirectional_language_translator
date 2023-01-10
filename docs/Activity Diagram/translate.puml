@@ -1,0 +1,17 @@
+@startuml translate
+
+start
+ :Navigate to Translation;
+ :Select source and target languages;
+ :Enter or paste text;
+ :Retrieve Translation;
+
+ if (Translation found?) then (yes)
+    :Display Translation;
+ else (No)
+    :Use AI_Model for Translation;
+ endif
+ :Copy Translated Text;
+stop
+
+@enduml

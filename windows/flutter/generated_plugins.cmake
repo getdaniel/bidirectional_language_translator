@@ -3,7 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  share_plus
+  tflite_flutter_helper
   url_launcher_windows
 )
 

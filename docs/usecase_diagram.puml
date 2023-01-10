@@ -1,0 +1,35 @@
+@startuml usecase_diagram
+
+actor User
+actor AI_Model
+actor Dataset_Dictionary
+actor Social_Medias
+actor System_Share
+
+rectangle Language_Translator {
+    User --> (Navigate)
+    (Navigate) --> (Use Drawer)
+    (Navigate) --> (Translate Text)
+    (Navigate) --> (Learn About Ge'ez Language)
+
+    AI_Model -> (Retrieve Translation)
+    Dataset_Dictionary -> (Retrieve Translation)
+    (Translate Text) --> Dataset_Dictionary: use
+    (Translate Text) --> AI_Model: use
+
+    (Use Drawer) --> (Translate Text)
+    (Use Drawer) --> (View Settings)
+    (Use Drawer) --> (View About Us)
+    (Use Drawer) --> (Share app)
+
+    (Share app) --> System_Share: use
+    (View Settings) --> (Change App Language)
+    (View Settings) --> (Change App Theme)
+    (View Settings) --> (Change App Font Size)
+    (View About Us) --> (Access Social Media Website)
+    (Access Social Media Website) --> Social_Medias: use
+
+    (Learn About Ge'ez Language) -> (Study Ge'ez)
+}
+
+@enduml

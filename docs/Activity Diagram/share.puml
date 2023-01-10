@@ -1,0 +1,10 @@
+@startuml share
+
+start
+  :Navigate;
+    :Drawer;
+    :Share App;
+    :System Share Apps;
+stop
+
+@enduml

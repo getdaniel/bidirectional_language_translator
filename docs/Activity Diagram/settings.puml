@@ -1,0 +1,16 @@
+@startuml settings
+
+start
+  :Navigate;
+    :Drawer;
+    :Settings;
+
+    if (language?) then (Yes)
+        :change language;
+    else if (theme?) then (Yes)
+        :change theme;
+    else if (font_size?) then (Yes)
+        :Change font size;
+    endif
+stop
+@enduml

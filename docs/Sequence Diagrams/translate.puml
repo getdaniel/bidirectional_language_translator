@@ -1,0 +1,22 @@
+@startuml translation_sequence_diagram
+
+actor User
+actor AI_Model
+
+User -> Translation: Navigate to Translation
+Translation -> User: Select source and target languages
+User -> Translation: Enter or paste text
+Translation -> AI_Model: Retrieve Translation
+
+alt Translation found?
+  AI_Model --> Translation: Translation
+  Translation -> User: Display Translation
+else 
+  Translation -> AI_Model: Use AI_Model for Translation
+  AI_Model --> Translation: Translation
+  Translation -> User: Display Translation
+end
+
+User -> Translation: Copy Translated Text
+
+@enduml

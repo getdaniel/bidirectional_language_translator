@@ -1,0 +1,9 @@
+@startuml study_geez
+
+start
+  :Navigate;
+  :Know Ge'ez;
+  :Study Ge'ez;
+stop
+
+@enduml

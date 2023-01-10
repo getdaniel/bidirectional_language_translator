@@ -1,0 +1,11 @@
+@startuml share_app_sequence_diagram
+
+actor User
+actor System_Share
+
+User -> ShareApp: Navigate
+ShareApp -> User : Drawer
+User -> ShareApp : Share App
+ShareApp -> System_Share : System Share Apps
+
+@enduml

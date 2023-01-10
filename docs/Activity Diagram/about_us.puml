@@ -1,0 +1,10 @@
+@startuml about_us_activity_diagram
+
+start
+  :Navigate;
+    :Use Drawer;
+    :About Us;
+    :Social Media Links;
+stop
+
+@enduml

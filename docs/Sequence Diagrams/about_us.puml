@@ -1,0 +1,11 @@
+@startuml about_us_sequence_diagram
+
+actor User
+actor Social_Medias
+
+User -> AboutUs: Navigate
+AboutUs -> User : Use Drawer
+User -> AboutUs : About Us
+AboutUs -> Social_Medias : Social Media Links
+
+@enduml
