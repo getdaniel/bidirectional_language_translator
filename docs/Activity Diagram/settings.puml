@@ -11,6 +11,8 @@ start
         :change theme;
     else if (font_size?) then (Yes)
         :Change font size;
+    else
+        :OK;
     endif
 stop
 @enduml

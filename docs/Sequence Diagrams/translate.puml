@@ -1,4 +1,4 @@
-@startuml translation_sequence_diagram
+@startuml translate
 
 actor User
 actor AI_Model

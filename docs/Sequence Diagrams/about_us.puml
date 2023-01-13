@@ -1,4 +1,4 @@
-@startuml about_us_sequence_diagram
+@startuml about_us
 
 actor User
 actor Social_Medias

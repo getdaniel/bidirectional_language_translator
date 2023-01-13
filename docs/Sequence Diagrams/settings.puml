@@ -1,4 +1,4 @@
-@startuml settings_sequence_diagram
+@startuml settings
 
 actor User
 

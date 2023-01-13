@@ -1,4 +1,4 @@
-@startuml share_app_sequence_diagram
+@startuml share_app
 
 actor User
 actor System_Share
