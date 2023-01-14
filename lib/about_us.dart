@@ -8,10 +8,10 @@ class About extends StatefulWidget {
   static const String routeName = '/about';
 
   @override
-  State<About> createState() => _HomeState();
+  State<About> createState() => _AboutState();
 }
 
-class _HomeState extends State<About> {
+class _AboutState extends State<About> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
