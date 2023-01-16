@@ -1,0 +1,72 @@
+@startuml class_analysis
+
+class MyApp{
+    +build()
+}
+
+class MyHomePage {
+  +routeName
+  +createState()
+}
+
+class MyHomePageState {
+  +build()
+  +buildMyNavBar()
+}
+
+class SettingsPage {
+  +routeName
+  +createState()
+}
+
+class SettingsPageState {
+  +dropdownvalue
+  +items
+  +build()
+}
+
+class About {
+    +routeName
+    +createState()
+}
+
+class AboutState {
+    build()
+}
+
+class Learn {
+  +createState()
+}
+
+class LearnState {
+  +whatGeez()
+  +build()
+}
+
+class Home {
+  +createState()
+}
+
+class HomeState {
+  +textController
+  +outputController
+  +initState()
+  +dispose()
+  +readJson()
+  +build()
+}
+
+MyApp -down-> MyHomePage : home
+MyApp -> Routes : routes
+MyHomePage -> MyHomePageState
+MyHomePageState -down-> Home
+MyHomePageState -down-> Learn
+SettingsPage -> SettingsPageState
+About -> AboutState
+Learn -> LearnState
+Home -> HomeState
+Routes -down-> MyHomePage
+Routes -down-> SettingsPage
+Routes -> About
+
+@enduml

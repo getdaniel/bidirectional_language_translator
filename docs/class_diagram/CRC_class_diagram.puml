@@ -1,0 +1,72 @@
+@startuml crc_class_diagram
+
+class MyApp {
+  +build()
+}
+
+class MyHomePage {
+  +routeName
+  +createState()
+}
+
+class MyHomePageState {
+  +build()
+  +buildMyNavBar()
+}
+
+class SettingsPage {
+  +routeName
+  +createState()
+}
+
+class SettingsPageState {
+  +dropdownvalue
+  +items
+  +build()
+}
+
+class About {
+    +routeName
+    +createState()
+}
+
+class AboutState {
+    +build()
+}
+
+class Learn {
+  +createState()
+}
+
+class LearnState {
+  +whatGeez()
+  +build()
+}
+
+class Home {
+  +createState()
+}
+
+class HomeState {
+  +textController
+  +outputController
+  +initState()
+  +dispose()
+  +readJson()
+  +build()
+}
+
+MyApp -- MyHomePage : home
+MyApp -right- Routes : routes
+MyHomePage -right- MyHomePageState
+MyHomePageState -- Home
+MyHomePageState -- Learn
+SettingsPage -right- SettingsPageState
+About -right- AboutState
+Learn -right- LearnState
+Home -right- HomeState
+Routes -- MyHomePage
+Routes -- SettingsPage
+Routes -right- About
+
+@enduml
