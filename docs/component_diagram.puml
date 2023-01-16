@@ -1,30 +1,34 @@
 @startuml component_diagram
 
+component "State" {
+  class "widget::framework.dart::State" as State
+}
+
 component "About Us" {
-  class "simple_language_translator::about_us.dart::About" as About
-  class "simple_language_translator::about_us.dart::_AboutState" as _AboutState
+  class "about_us.dart::About" as About
+  class "about_us.dart::_AboutState" as _AboutState
 }
 
 component "Main" {
-  class "simple_language_translator::main.dart::MyApp" as MyApp
-  class "simple_language_translator::main.dart::MyHomePage" as MyHomePage
-  class "simple_language_translator::main.dart::_MyHomePageState" as _MyHomePageState
-  class "simple_language_translator::routes.dart::Routes" as Routes
+  class "main.dart::MyApp" as MyApp
+  class "main.dart::MyHomePage" as MyHomePage
+  class "main.dart::_MyHomePageState" as _MyHomePageState
+  class "routes.dart::Routes" as Routes
 }
 
 component "Settings" {
-  class "simple_language_translator::settings.dart::SettingsPage" as SettingsPage
-  class "simple_language_translator::settings.dart::_SettingState" as _SettingState
+  class "settings.dart::SettingsPage" as SettingsPage
+  class "settings.dart::_SettingState" as _SettingState
 }
 
 component "Know Geez" {
-  class "simple_language_translator::know_geez.dart::Learn" as Learn
-  class "simple_language_translator::know_geez.dart::_LearnState" as _LearnState
+  class "know_geez.dart::Learn" as Learn
+  class "know_geez.dart::_LearnState" as _LearnState
 }
 
 component "Home" {
-  class "simple_language_translator::home.dart::Home" as Home
-  class "simple_language_translator::home.dart::_HomeState" as _HomeState
+  class "home.dart::Home" as Home
+  class "home.dart::_HomeState" as _HomeState
 }
 
 MyApp -down-> MyHomePage
@@ -34,5 +38,15 @@ SettingsPage -down-> _SettingState
 Learn -down-> _LearnState
 Home -down-> _HomeState
 About -down-> _AboutState
+
+State --> About
+State --> MyApp
+State --> Settings
+State --> Learn
+State --> Home
+
+Routes --> Settings
+Routes --> About
+Routes --> Home
 
 @enduml
