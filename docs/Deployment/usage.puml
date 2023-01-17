@@ -1,0 +1,64 @@
+@startuml usage_model
+
+actor User
+
+node Device {
+    component FlutterApp
+    component DartVM
+}
+
+node Web {
+    component FlutterApp
+    component DartVM
+}
+
+node Windows {
+    component FlutterApp
+    component DartVM
+}
+
+node Linux {
+    component FlutterApp
+    component DartVM
+}
+
+node macOS {
+    component FlutterApp
+    component DartVM
+}
+
+node iOS {
+    component FlutterApp
+    component DartVM
+}
+
+node Android {
+    component FlutterApp
+    component DartVM
+}
+
+User -down-> Web : Use
+Web --> FlutterApp : Execute
+FlutterApp --> DartVM : Run
+
+User -> Windows : Use
+Windows --> FlutterApp : Execute
+FlutterApp --> DartVM : Run
+
+User -> Linux : Use
+Linux --> FlutterApp : Execute
+FlutterApp --> DartVM : Run
+
+User -> macOS : Use
+macOS --> FlutterApp : Execute
+FlutterApp --> DartVM : Run
+
+User -> iOS : Use
+iOS --> FlutterApp : Execute
+FlutterApp --> DartVM : Run
+
+User -> Android : Use
+Android --> FlutterApp : Execute
+FlutterApp --> DartVM : Run
+
+@enduml

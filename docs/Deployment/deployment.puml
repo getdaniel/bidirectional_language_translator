@@ -1,0 +1,74 @@
+@startuml deployment_model
+
+node iOS {
+  [iOS Version]
+}
+
+node Android {
+  [Android Version]
+}
+
+node Windows {
+  [Windows Version]
+}
+
+node macOS {
+  [macOS Version]
+}
+
+node Linux {
+  [Linux Version]
+}
+
+node Web {
+  [Web Version]
+}
+
+node AppStore {
+  [iOS-Version]
+}
+
+node GooglePlayStore {
+  [Android-Version]
+}
+
+node WindowsStore {
+  [Windows-Version]
+}
+
+node macOSAppStore {
+  [macOS-Version]
+}
+
+node LinuxAppStore {
+  [Linux-Version]
+}
+
+node WebServer {
+  [Web Server]
+}
+
+actor User
+
+[FlutterApp] -up-> AppStore : deploy to
+[FlutterApp] -up-> GooglePlayStore : deploy to
+[FlutterApp] -up-> WindowsStore : deploy to
+[FlutterApp] -up-> LinuxAppStore : deploy to
+[FlutterApp] -up-> WebServer : deploy to
+[FlutterApp] -up-> macOSAppStore : deploy to
+
+iOS --> AppStore : install from
+Android --> GooglePlayStore : install from
+Web --> WebServer : http from
+Windows --> WindowsStore : install from
+Linux --> LinuxAppStore : install from
+macOS --> macOSAppStore : install from
+
+User --> iOS: use
+User --> Android: use
+User --> Web: use
+User --> macOS: use
+User --> Linux: use
+User --> Windows: use
+
+@enduml
