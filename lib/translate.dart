@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:tflite/tflite.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -16,6 +17,8 @@ class _HomeState extends State<Home> {
   final textController = TextEditingController();
   final outputController = TextEditingController();
 
+  bool _isLoading = false;
+
   // Initial Selected Value
   String dropdownvalue = "Ge'ez to Amharic";
 
@@ -25,7 +28,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-
+    _loadModel();
     // Start listening to changes.
     textController.addListener(readJson);
   }
@@ -55,6 +58,23 @@ class _HomeState extends State<Home> {
         }
       }
     });
+  }
+
+  // Load model
+  Future<void> _loadModel() async {
+    setState(() {
+      _isLoading = true;
+    });
+    await Tflite.loadModel(
+      model: 'assets/files/translate.tflite',
+      labels: 'assets/files/geez_amharic.txt');
+    setState(() {
+      _isLoading = false;
+    });
+  }
+
+  // Translation of text
+  Future<List> _translate(String input) async {
   }
 
   @override
