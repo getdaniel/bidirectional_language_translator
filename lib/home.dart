@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:tflite/tflite.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
