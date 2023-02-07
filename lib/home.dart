@@ -28,7 +28,7 @@ class _HomeState extends State<Home> {
     super.initState();
 
     // Start listening to changes.
-    textController.addListener(readJson);
+    textController.addListener(translate);
   }
 
   @override
@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
   }
 
   // Fetch content from the json file
-  Future<void> readJson() async {
+  Future<void> translate() async {
     final String response =
         await rootBundle.loadString('assets/files/geez_amharic.json');
     Map lang = await json.decode(response);
@@ -50,15 +50,9 @@ class _HomeState extends State<Home> {
         if ('$key' == textController.text) {
           outputController.text = '$value';
         }
-        else {
-          outputController.text = translate(textController.text) as String;
-        }
       } else {
         if ('$value' == textController.text) {
           outputController.text = '$key';
-        }
-        else {
-          outputController.text = translate(textController.text) as String;
         }
       }
     });
@@ -71,7 +65,7 @@ class _HomeState extends State<Home> {
       );
   }
 
-  Future<String> translate(String input) async {
+  Future<String> useAiModel(String input) async {
       // Preprocess the input string
       var inputArray = _convertStringToInputArray(textController.text);
 
