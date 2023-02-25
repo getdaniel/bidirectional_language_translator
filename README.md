@@ -12,10 +12,13 @@ Bidirectional Language Translator Mobile Application with Flutter framework. The
 - The Bidirectional Language Translation Project will benefit a wide range of users, including students, researchers, business professionals, and others who need to translate between Geez and Amharic for various purposes. It will also contribute to the preservation and promotion of these two important languages, by making them more accessible and widely used.
 
 ### Entire Project Description
-- 
+- The folder that named [Android](https://github.com/getdaniel/bidirectional_language_translator/tree/main/android), [iOS](https://github.com/getdaniel/bidirectional_language_translator/tree/main/ios), [Linux](https://github.com/getdaniel/bidirectional_language_translator/tree/main/linux), [MacOS](https://github.com/getdaniel/bidirectional_language_translator/tree/main/macos), [Web](https://github.com/getdaniel/bidirectional_language_translator/tree/main/web), [Windows](https://github.com/getdaniel/bidirectional_language_translator/tree/main/windows) are about the configuration file path of the their respective platforms.
+- [Docs](https://github.com/getdaniel/bidirectional_language_translator/tree/main/docs) and [Outs](https://github.com/getdaniel/bidirectional_language_translator/tree/main/out/docs) are the documentation folder of the project.
+- [Test](https://github.com/getdaniel/bidirectional_language_translator/tree/main/test) folder is the folder of the test code should be prepared.
+- [Lib](https://github.com/getdaniel/bidirectional_language_translator/tree/main/lib)/* is folder that the main functionality of the project is found on.
 
-### Installation :down arrow:
-- 
+### Installation :arrow_down:
+- Install your favorite app from their repective app stores
 
 ## Usage :running_man: :running_woman:
 ### Step 1: <br>
