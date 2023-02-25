@@ -1,18 +1,16 @@
-# Simple-Language-Translator :repeat: :computer:
-Simple Language Translator Mobile Application with Flutter framework. The application as a flutter framework, is compatible with Android :iphone:, iOS :iphone:, Linux :desktop_computer:, Windows :window: and Browser(Web) :computer:. For the time of now it can only ability to translate the Ge'ez langauge to the Amharic language and vice versa.
+# Bidirectional-Language-Translator :repeat: :computer:
+Bidirectional Language Translator Mobile Application with Flutter framework. The application as a flutter framework, is compatible with Android :iphone:, iOS :iphone:, Linux :desktop_computer:, Windows :window: and Browser(Web) :computer:. For the time of now it can only ability to translate the Ge'ez langauge to the Amharic language and vice versa.
 
 ## About the Project :building_construction:
-The Simple Language Translation Project aims to develop a tool that can translate text between Geez and Amharic, two closely related languages spoken in Ethiopia and Eritrea. The project aims to make translation between the two languages more accessible and convenient, particularly for people who may not be fluent in both languages.
-The project involves the development of a translation engine that uses natural language processing (NLP) techniques to analyze and understand the meaning of text in one language, and then generate equivalent text in the other language. The translation engine will be trained on a large dataset of text in both languages, in order to learn the patterns and rules of each language and improve the accuracy of the translations it generates.
-The Simple Language Translation Project will benefit a wide range of users, including students, researchers, business professionals, and others who need to translate between Geez and Amharic for various purposes. It will also contribute to the preservation and promotion of these two important languages, by making them more accessible and widely used.
+- The Bidirectional Language Translation Project aims to develop a tool that can translate text between Geez and Amharic, two closely related languages spoken in Ethiopia and Eritrea. The project aims to make translation between the two languages more accessible and convenient, particularly for people who may not be fluent in both languages.
+- The project involves the development of a translation engine that uses natural language processing (NLP) techniques to analyze and understand the meaning of text in one language, and then generate equivalent text in the other language. The translation engine will be trained on a large dataset of text in both languages, in order to learn the patterns and rules of each language and improve the accuracy of the translations it generates.
+- The Bidirectional Language Translation Project will benefit a wide range of users, including students, researchers, business professionals, and others who need to translate between Geez and Amharic for various purposes. It will also contribute to the preservation and promotion of these two important languages, by making them more accessible and widely used.
 
-## Built With :atom:
-
-## Get Started :information_source:
-
-### Prerequisite :previous_track_button:
+### Entire Project Description
+- 
 
 ### Installation :down_arrow:
+- 
 
 ## Usage :running_man: :running_woman:
 ### Step 1: <br>
