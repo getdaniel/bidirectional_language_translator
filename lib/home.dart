@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
-import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
+import 'classifier.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -17,6 +18,8 @@ class _HomeState extends State<Home> {
   final textController = TextEditingController();
   final outputController = TextEditingController();
 
+  final _classifier = Classifier();
+
   // Initial Selected Value
   String dropdownvalue = "Ge'ez to Amharic";
 
@@ -26,8 +29,6 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-
-    // Start listening to changes.
     textController.addListener(translate);
   }
 
@@ -50,57 +51,25 @@ class _HomeState extends State<Home> {
         if ('$key' == textController.text) {
           outputController.text = '$value';
         }
+        else {
+          _translate(textController.text);
+        }
       } else {
         if ('$value' == textController.text) {
           outputController.text = '$key';
+        }
+        else {
+          _translate(textController.text);
         }
       }
     });
   }
 
-  Future<void> loadModel() async {
-      await Tflite.loadModel(
-          model: "assets/translate.tflite",
-          labels: "assets/files/geez_amharic.txt"
-      );
-  }
-
-  Future<String> useAiModel(String input) async {
-      // Preprocess the input string
-      var inputArray = _convertStringToInputArray(textController.text);
-
-      // Convert the input array to a Uint8List
-    var inputByteData = Uint8List.fromList(inputArray);
-
-
-      // Run the model on the input array
-      var output = await Tflite.runModelOnBinary(
-          binary: inputByteData,
-          numResults: 2,
-          threshold: 0.5,
-      );
-
-      // Postprocess the output
-      if (output != null) {
-        List<int> castOutput = output.cast<int>();
-        String translation = _convertOutputToString(castOutput);
-
-        return translation;
-        } else {
-          return "";
-          }
-  }
-
-  List<int> _convertStringToInputArray(String input) {
-      // code to convert the string input to an array of integers
-      // depends on the specific preprocessing steps required by your model
-      return input.split(' ').map(int.parse).toList();
-  }
-
-  String _convertOutputToString(List<int> output) {
-      // code to convert the output of the model to a string
-      // depends on the specific postprocessing steps required by your model
-      return output.map((int element) => element.toString()).join(",");
+  void _translate(String inputText) {
+    final output = _classifier.classify(inputText);
+    setState(() {
+      outputController.text = output;
+    });
   }
 
   @override
