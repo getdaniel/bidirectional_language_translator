@@ -11,6 +11,10 @@ Bidirectional Language Translator Mobile Application with Flutter framework. The
 - The project involves the development of a translation engine that uses natural language processing (NLP) techniques to analyze and understand the meaning of text in one language, and then generate equivalent text in the other language. The translation engine will be trained on a large dataset of text in both languages, in order to learn the patterns and rules of each language and improve the accuracy of the translations it generates.
 - The Bidirectional Language Translation Project will benefit a wide range of users, including students, researchers, business professionals, and others who need to translate between Geez and Amharic for various purposes. It will also contribute to the preservation and promotion of these two important languages, by making them more accessible and widely used.
 
+<p align="center">
+  <img src="https://github.com/getdaniel/bidirectional_language_translator/blob/main/assets/images/readme/Diagram - UI.png" alt="The projects interface">
+</p>
+
 ### Entire Project Description
 - The folder that named [Android](https://github.com/getdaniel/bidirectional_language_translator/tree/main/android), [iOS](https://github.com/getdaniel/bidirectional_language_translator/tree/main/ios), [Linux](https://github.com/getdaniel/bidirectional_language_translator/tree/main/linux), [MacOS](https://github.com/getdaniel/bidirectional_language_translator/tree/main/macos), [Web](https://github.com/getdaniel/bidirectional_language_translator/tree/main/web), [Windows](https://github.com/getdaniel/bidirectional_language_translator/tree/main/windows) are about the configuration file path of the their respective platforms.
 - [Docs](https://github.com/getdaniel/bidirectional_language_translator/tree/main/docs) and [Outs](https://github.com/getdaniel/bidirectional_language_translator/tree/main/out/docs) are the documentation folder of the project.
