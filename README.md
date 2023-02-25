@@ -17,19 +17,25 @@ Bidirectional Language Translator Mobile Application with Flutter framework. The
 
 ### Entire Project Description
 - The folder that named [Android](https://github.com/getdaniel/bidirectional_language_translator/tree/main/android), [iOS](https://github.com/getdaniel/bidirectional_language_translator/tree/main/ios), [Linux](https://github.com/getdaniel/bidirectional_language_translator/tree/main/linux), [MacOS](https://github.com/getdaniel/bidirectional_language_translator/tree/main/macos), [Web](https://github.com/getdaniel/bidirectional_language_translator/tree/main/web), [Windows](https://github.com/getdaniel/bidirectional_language_translator/tree/main/windows) are about the configuration file path of the their respective platforms.
+
 - [Docs](https://github.com/getdaniel/bidirectional_language_translator/tree/main/docs) and [Outs](https://github.com/getdaniel/bidirectional_language_translator/tree/main/out/docs) are the documentation folder of the project.
+
 - [Test](https://github.com/getdaniel/bidirectional_language_translator/tree/main/test) folder is the folder of the test code should be prepared.
+
 - [Lib](https://github.com/getdaniel/bidirectional_language_translator/tree/main/lib)/* is folder that the main functionality of the project is found on.
 
 ### Installation :arrow_down:
 - Install your favorite app from their repective app stores
 
 ## Usage :running_man: :running_woman:
-### Step 1: <br>
-`git clone https://github.com/getdaniel/bidirectional_language_translator.git` <br>
+### Step :one:
+`Choose a favorite language to translate a text.`
 
-### Step 2: <br>
-`Start to code.` :grin:<br>
+### Step :two:
+`Enter a corresponding text to the first text field`
+
+### Step :three:
+`The text will be appear at the text field of the app.`
 
 ## Contributing :handshake:
 If you are interesting on this project, contact us through the below mail contact to contribute for the project.
