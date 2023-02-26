@@ -1,30 +1,91 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/material.dart';
+import 'package:mockito/mockito.dart';
+import 'package:simple_language_translator/classifier.dart';
+import 'package:simple_language_translator/home.dart';
 
-import 'package:simple_language_translator/main.dart';
+class MockClassifier extends Mock implements Classifier {}
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  late Home home;
+  late MockClassifier classifier;
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  setUp(() {
+    classifier = MockClassifier();
+    home = Home(classifier: classifier);
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  group('Home widget', () {
+    testWidgets('displays dropdown and text fields', (WidgetTester tester) async {
+      await tester.pumpWidget(MaterialApp(home: home));
+      expect(find.byType(DropdownButton2), findsOneWidget);
+      expect(find.byType(TextField), findsNWidgets(2));
+    });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    testWidgets('displays translated output when input text is entered', (WidgetTester tester) async {
+      when(classifier.classify('test input')).thenReturn('test output');
+      await tester.pumpWidget(MaterialApp(home: home));
+
+      await tester.enterText(find.byType(TextField).first, 'test input');
+      await tester.pumpAndSettle();
+
+      expect(find.text('test output'), findsOneWidget);
+    });
+
+    testWidgets('displays copied text on clipboard when copy icon is tapped', (WidgetTester tester) async {
+      when(classifier.classify('test input')).thenReturn('test output');
+      await tester.pumpWidget(MaterialApp(home: home));
+
+      await tester.enterText(find.byType(TextField).first, 'test input');
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byIcon(Icons.copy_all));
+      await tester.pumpAndSettle();
+
+      final ClipboardData? clipboardData = await Clipboard.getData(Clipboard.kTextPlain);
+      expect(clipboardData!.text, equals('test output'));
+    });
+
+    testWidgets('displays pasted text on text field when paste icon is tapped', (WidgetTester tester) async {
+      await tester.pumpWidget(MaterialApp(home: home));
+
+      await Clipboard.setData(const ClipboardData(text: 'pasted text'));
+      await tester.tap(find.byIcon(Icons.paste));
+      await tester.pumpAndSettle();
+
+      expect(find.text('pasted text'), findsOneWidget);
+    });
+
+    testWidgets('displays translated output for Geez to Amharic when dropdown is changed', (WidgetTester tester) async {
+      when(classifier.classify('test input')).thenReturn('test output');
+      await tester.pumpWidget(MaterialApp(home: home));
+
+      await tester.tap(find.byType(DropdownButton2));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text("Ge'ez to Amharic").last);
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byType(TextField).first, 'test input');
+      await tester.pumpAndSettle();
+
+      expect(find.text('test output'), findsOneWidget);
+    });
+
+    testWidgets('displays translated output for Amharic to Geez when dropdown is changed', (WidgetTester tester) async {
+      when(classifier.classify('test input')).thenReturn('test output');
+      await tester.pumpWidget(MaterialApp(home: home));
+
+      await tester.tap(find.byType(DropdownButton2));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text("Amharic to Ge'ez").last);
+      await tester.pumpAndSettle();
+
+      await tester.enterText(find.byType(TextField).first, 'test input');
+      await tester.pumpAndSettle();
+
+      expect(find.text('test output'), findsOneWidget);
+    });
   });
 }
