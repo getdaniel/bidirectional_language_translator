@@ -47,28 +47,21 @@ class _HomeState extends State<Home> {
 
     lang.forEach((key, value) {
       if (dropdownvalue == "Ge'ez to Amharic") {
-        if ('$key' == textController.text) {
-          outputController.text = '$value';
-        }
-        else {
-          _translate(textController.text);
+        if (key.contains(textController.text)) {
+          outputController.text = value;
         }
       } else {
-        if ('$value' == textController.text) {
-          outputController.text = '$key';
-        }
-        else {
-          _translate(textController.text);
+        if (value.contains(textController.text)) {
+          outputController.text = key;
         }
       }
     });
-  }
 
-  void _translate(String inputText) {
-    final output = _classifier.classify(inputText);
-    setState(() {
-      outputController.text = output;
-    });
+    // If the user input does not match any key in the JSON file,
+    // use the AI model to translate the input
+    if (textController.text.isNotEmpty && outputController.text.isEmpty) {
+      _classifier.classify(textController.text);
+    }
   }
 
   @override

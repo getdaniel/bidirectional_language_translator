@@ -8,7 +8,6 @@ class Classifier {
 
   final String start = '<START>';
   final String pad = '<PAD>';
-  final String unk = '<UNKNOWN>';
 
   late Map<String, int> _dict;
 
@@ -60,18 +59,25 @@ class Classifier {
     var vec = List<double>.filled(_sentenceLen, _dict[pad]!.toDouble());
 
     var index = 0;
+
+    // Add start token at the beginning of the sentence
     if (_dict.containsKey(start)) {
       vec[index++] = _dict[start]!.toDouble();
     }
 
     // For each word in sentence find corresponding index in dict
     for (var tok in toks) {
-      if (index > _sentenceLen) {
+      if (index >= _sentenceLen - 1) {
         break;
       }
       vec[index++] = _dict.containsKey(tok)
           ? _dict[tok]!.toDouble()
-          : _dict[unk]!.toDouble();
+          : _dict[pad]!.toDouble();
+    }
+
+    // Add end token at the end of the sentence
+    if (_dict.containsKey('<END>')) {
+      vec[index++] = _dict['<END>']!.toDouble();
     }
 
     // returning List<List<double>> as our interpreter input tensor expects the shape, [1,40]
