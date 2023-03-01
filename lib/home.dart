@@ -59,7 +59,7 @@ class _HomeState extends State<Home> {
 
     // If the user input does not match any key in the JSON file,
     // use the AI model to translate the input
-    if (textController.text.isNotEmpty && outputController.text.isEmpty) {
+    if (outputController.text.isEmpty) {
       _classifier.classify(textController.text);
     }
   }
