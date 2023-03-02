@@ -24,6 +24,66 @@ Bidirectional Language Translator Mobile Application with Flutter framework. The
 
 - [Lib](https://github.com/getdaniel/bidirectional_language_translator/tree/main/lib)/* is folder that the main functionality of the project is found on.
 
+### Snippet Code
+```
+// the textfield's controllers
+  final textController = TextEditingController();
+  final outputController = TextEditingController();
+
+  final _classifier = Classifier();
+
+  // Initial Selected Value
+  String dropdownvalue = "Ge'ez to Amharic";
+
+  // List of items in our dropdown menu
+  var items = ["Ge'ez to Amharic", "Amharic to Ge'ez"];
+
+  @override
+  void initState() {
+    super.initState();
+    textController.addListener(translate);
+  }
+
+  @override
+  void dispose() {
+    // Clean up the controller when the widget is removed from the widget tree.
+    // This also removes the _printLatestValue listener.
+    textController.dispose();
+    super.dispose();
+  }
+
+  // Fetch content from the json file
+  Future<void> translate() async {
+    final String response =
+        await rootBundle.loadString('assets/files/geez_amharic.json');
+    Map lang = await json.decode(response);
+
+    String inputText = textController.text;
+    String outputText = '';
+
+    if (dropdownvalue == "Ge'ez to Amharic") {
+      if (lang.containsKey(inputText)) {
+        outputText = lang[inputText];
+      } else {
+        outputText = _classifier.classify(inputText);
+      }
+    } else {
+      lang.forEach((key, value) {
+        if (value == inputText) {
+          outputText = key;
+        }
+      });
+      if (outputText.isEmpty) {
+        outputText = _classifier.classify(inputText);
+      }
+    }
+
+    setState(() {
+      outputController.text = outputText;
+    });
+  }
+```
+
 ### Installation :arrow_down:
 - Install your favorite app from their repective app stores
 
@@ -36,6 +96,11 @@ Bidirectional Language Translator Mobile Application with Flutter framework. The
 
 ### Step :three:
 `The text will be appear at the text field of the app.`
+
+### Testing
+<p align="center">
+  <video src="https://github.com/getdaniel/bidirectional_language_translator/blob/main/assets/images/readme/test_1.mp4" alt="Tested output"><video>
+</p>
 
 ## Contributing :handshake:
 If you are interesting on this project, contact us through the below mail contact to contribute for the project.
