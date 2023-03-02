@@ -25,6 +25,7 @@ Bidirectional Language Translator Mobile Application with Flutter framework. The
 - [Lib](https://github.com/getdaniel/bidirectional_language_translator/tree/main/lib)/* is folder that the main functionality of the project is found on.
 
 ### Snippet Code
+- The below code is the main algorithm that used now.
 ```
 // the textfield's controllers
   final textController = TextEditingController();
@@ -81,6 +82,41 @@ Bidirectional Language Translator Mobile Application with Flutter framework. The
     setState(() {
       outputController.text = outputText;
     });
+  }
+```
+
+- The following code is the AI model inference method
+```
+String classify(String rawText) {
+    // Tokenize input text
+    final tokens = rawText.split(' ');
+
+    // Convert tokens to numerical input
+    final List<num> input = List.filled(_vocab.length * 2, 0);
+    for (int i = 0; i < tokens.length; i++) {
+      final index = _vocab.indexOf(tokens[i]);
+      if (index >= 0) {
+        input[i] = index.toDouble();
+        input[_vocab.length + i] = index.toDouble();
+      }
+    }
+
+    // Run inference
+    final output = List.filled(_vocab.length * 2, 0);
+    _interpreter?.run(input, output);
+
+    // Convert numerical output to tokens
+    final List<String> outputTokens = [];
+    for (int i = 0; i < tokens.length; i++) {
+      final index = output.indexOf(output[i + _vocab.length]);
+      if (index >= 0 && index < _vocab.length) {
+        outputTokens.add(_vocab[index]);
+      }
+    }
+
+    // Join tokens into string and return
+    final outputText = outputTokens.join(' ');
+    return outputText;
   }
 ```
 
