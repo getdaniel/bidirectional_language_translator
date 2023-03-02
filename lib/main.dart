@@ -24,12 +24,12 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: "Simple Language Translator"),
+      home: const MyHomePage(title: "Bidirectional Language Translator"),
       routes: {
         Routes.about: (context) => const About(),
         Routes.settings: (context) => const SettingsPage(),
         Routes.homepage: (context) =>
-            const MyHomePage(title: "Simple Language Translator"),
+            const MyHomePage(title: "Bidirectional Language Translator"),
       },
     );
   }

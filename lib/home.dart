@@ -45,23 +45,29 @@ class _HomeState extends State<Home> {
         await rootBundle.loadString('assets/files/geez_amharic.json');
     Map lang = await json.decode(response);
 
-    lang.forEach((key, value) {
-      if (dropdownvalue == "Ge'ez to Amharic") {
-        if (key.contains(textController.text)) {
-          outputController.text = value;
-        }
-      } else {
-        if (value.contains(textController.text)) {
-          outputController.text = key;
-        }
-      }
-    });
+    String inputText = textController.text;
+    String outputText = '';
 
-    // If the user input does not match any key in the JSON file,
-    // use the AI model to translate the input
-    if (outputController.text.isEmpty) {
-      _classifier.classify(textController.text);
+    if (dropdownvalue == "Ge'ez to Amharic") {
+      if (lang.containsKey(inputText)) {
+        outputText = lang[inputText];
+      } else {
+        outputText = _classifier.classify(inputText);
+      }
+    } else {
+      lang.forEach((key, value) {
+        if (value == inputText) {
+          outputText = key;
+        }
+      });
+      if (outputText.isEmpty) {
+        outputText = _classifier.classify(inputText);
+      }
     }
+
+    setState(() {
+      outputController.text = outputText;
+    });
   }
 
   @override
